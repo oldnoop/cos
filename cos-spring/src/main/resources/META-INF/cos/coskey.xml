@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>cos临时密钥配置</comment>
+	<!-- cos pai版本 -->
+	<entry key="version">2.0</entry>
+	<!-- secretId,存储桶主账号secretId -->
+	<entry key="secretId"></entry>
+	<!-- #secretKey,存储桶主账号secretKey -->
+	<entry key="secretKey"></entry>
+	<!-- 是否开启加密配置 -->
+	<entry key="decryptEnabled">false</entry>
+	<!-- 开启加密配置后的public key,此时secretId,secretKey皆为密文 -->
+	<entry key="decryptPublicKey"></entry>
+	<!-- #durationSeconds,临时密钥失效时间,单位秒 -->
+	<entry key="durationSeconds">1800</entry>
+	<!-- #区域,如:ap-beijing -->
+	<entry key="region"></entry>
+	<!-- #存储桶,如:example-123456789 -->
+	<entry key="bucket"></entry>
+	<!-- 
+	#临时密钥的请求路径,通过spring注册servlet bean的方式需要
+	#如果通过注册servlet的初始化参数init-param,该参数将被忽略
+	 -->
+	<entry key="keyApplyPath">/coskey</entry>
+	<!-- #上传允许的操作,多值用逗号拼接 -->
+	<entry key="uploadActions"></entry>
+	<!-- #下载允许的操作,多值用逗号拼接 -->
+	<entry key="downloadActions"></entry>
+	<!-- 
+	#配置tokenCreator类型,默认使用com.oldnoop.cos.tmpkey.CosTmpTokenCreator
+	#自定义类型为CosTmpTokenCreator的子类
+	 -->
+	<entry key="tokenCreator">com.oldnoop.cos.tmpkey.CosTmpTokenCreator</entry>
+	<!-- 
+	#配置keyPolicy类型,默认使用com.oldnoop.cos.tmpkey.CosTmpKeyPolicyDefault
+	#自定义类型实现com.oldnoop.cos.tmpkey.CosTmpKeyPolicy
+	 -->
+	<entry key="keyPolicy">com.oldnoop.cos.tmpkey.CosTmpKeyPolicyDefault</entry>
+	<!-- 
+	#如果使用默认的临时密钥策略类CosTmpKeyPolicyDefault,需要配置在session中保存的登录用户的userId的数据名称
+	#如果在CosTmpTokenCreator中已经注入其他的临时密钥策略类,该配置将被忽略
+	 -->
+	<entry key="userIdSessionAttribute">userId</entry>
+</properties>

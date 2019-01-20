@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<servlet>
+		<servlet-name>cos-servlet</servlet-name>
+		<servlet-class>com.oldnoop.cos.tmpkey.CosTmpKeyServlet</servlet-class>
+		<!-- 配置文件,默认为classpath:coskey.properties或coskey.xml,该方式优先 -->
+		<init-param>
+			<param-name>cosConfigLocation</param-name>
+			<param-value>classpath:coskey.properties</param-value>
+		</init-param>
+		<!-- 配置使用spring容器中的bean的类型,该方式次优先-->
+		<init-param>
+			<param-name>tokenCreatorClass</param-name>
+			<param-value>com.oldnoop.cos.tmpkey.CosTmpTokenCreator</param-value>
+		</init-param>
+		<!-- 配置使用spring容器中的bean的名称,该方式 优先级排在最后-->
+		<init-param>
+			<param-name>tokenCreatorName</param-name>
+			<param-value>tokenCreator</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cos-servlet</servlet-name>
+		<!--临时密钥的请求路径 -->
+		<url-pattern>/coskey</url-pattern>
+	</servlet-mapping>
+</web-app>

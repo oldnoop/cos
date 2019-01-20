@@ -1,0 +1,84 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.oldnoop.cos.CosServerProperties",
+      "name": "spring.cos.oldnoop.server",
+      "type": "com.oldnoop.cos.CosServerProperties"
+    },
+    {
+      "sourceType": "com.oldnoop.cos.tmpkey.CosTmpKeyProperties",
+      "name": "spring.cos.oldnoop.tmpkey",
+      "type": "com.oldnoop.cos.tmpkey.CosTmpKeyProperties"
+    }
+  ],
+  "properties": [
+  	{
+      "sourceType": "com.oldnoop.cos.CosServerProperties",
+      "defaultValue": "2.0",
+      "type": "java.lang.String",
+      "name": "spring.cos.oldnoop.server.version",
+      "description": "cos api version"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosServerProperties",
+      "name": "spring.cos.oldnoop.server.secret-id",
+      "type": "java.lang.String",
+      "description": "cos api secretId"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosServerProperties",
+      "name": "spring.cos.oldnoop.server.secret-key",
+      "type": "java.lang.String",
+      "description": "cos api secretKey"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosServerProperties",
+      "name": "spring.cos.oldnoop.server.decrypt-enabled",
+      "type": "java.lang.Boolean",
+      "description": "cos api secretId,secretKey decrypt enabled "
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosServerProperties",
+      "name": "spring.cos.oldnoop.server.decrypt-public-key",
+      "type": "java.lang.String",
+      "description": "cos api secretId,secretKey decrypt public key"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosServerProperties",
+      "name": "spring.cos.oldnoop.server.bucket",
+      "type": "java.lang.String",
+      "description": "cos bucket name"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosTmpKeyProperties",
+      "name": "spring.cos.oldnoop.tmpkey.key-apply-path",
+      "type": "java.lang.String",
+      "description": "cos api temporary key request uri"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosTmpKeyProperties",
+      "name": "spring.cos.oldnoop.tmpkey.user-id-session-attribute",
+      "type": "java.lang.Integer",
+      "description": "cos api default temporary key policy need user id attribute in session"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosTmpKeyProperties",
+      "name": "spring.cos.oldnoop.tmpkey.duration-seconds",
+      "type": "java.lang.Integer",
+      "description": "cos api temporary key expire time"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosTmpKeyProperties",
+      "name": "spring.cos.oldnoop.tmpkey.upload-actions",
+      "type": "java.lang.Integer",
+      "description": "cos api temporary key upload actions"
+    },
+  	{
+      "sourceType": "com.oldnoop.cos.CosTmpKeyProperties",
+      "name": "spring.cos.oldnoop.tmpkey.download-actions",
+      "type": "java.lang.Integer",
+      "description": "cos api temporary key download actions"
+    }
+  ]
+}
