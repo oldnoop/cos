@@ -65,7 +65,7 @@ public class CosTmpKeyProperties {
        "name/cos:AbortMultipartUpload"
    };
    
-    public static final String[] DEFAULT_DOWNLOAD_ACTIONS = { "name/cos:GetObject" };
+    public static final String[] DEFAULT_DOWNLOAD_ACTIONS = { "name/cos:GetBucket","name/cos:GetObject" };
 
     public CosServerProperties getServerProperties() {
         return serverProperties;
