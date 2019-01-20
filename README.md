@@ -1,14 +1,11 @@
-# cos
-
 ## 介绍
----
-- 腾讯云存储COS API的spring/springboot 支持,提供临时密钥解决方案方便使用,按系统用户id设计上传下载权限,可使用默认设计,按用户id限定上传文件夹,下载不限
-- 支持单独使用spring配置
-- 支持使用springboot配置并提供起步依赖和自动配置,引入依赖即可
-- 提供示例代码供参考
+
+* 腾讯云存储COS API的spring/springboot 支持,提供临时密钥解决方案方便使用,按系统用户id设计上传下载权限,可使用默认设计,按用户id限定上传文件夹,下载不限
+* 支持单独使用spring配置
+* 支持使用springboot配置并提供起步依赖和自动配置,引入依赖即可
+* 提供示例代码供参考
 
 ## 源代码说明
----
 - 下载 git clone https://github.com/oldnoop/cos.git
 - cos-spring 实现spring的集成
 - cos-spring-boot-autoconfigure 实现springboot的自动配置
@@ -41,41 +38,23 @@
 coskey.properties
 参考cos-spring的jar包中的/META-INF/cos/coskey.properties
 
-#### 编程式配置
-```JAVA
-@Configuration
-class CosConfigKeyPolicyDefault {
-
-    @Bean
-    public CosServerProperties cosServerProperties() {
-        CosServerProperties serverProperties = new CosServerProperties();
-        //读取配置属性,设置属性
-        return serverProperties;
-    }
-    
-    @Bean
-    public CosTmpKeyProperties cosTmpKeyProperties(CosServerProperties cosServerProperties){
-        CosTmpKeyProperties cosTmpKeyProperties = new CosTmpKeyProperties();
-        cosTmpKeyProperties.setServerProperties(cosServerProperties);
-        //读取配置属性,设置属性
-        return cosTmpKeyProperties;
-    }
-    
-    @Bean
-    public CosTmpTokenCreator tokenCreator(CosTmpKeyProperties keyProperties){
-        CosTmpTokenCreator tokenCreator = new CosTmpTokenCreator();
-        tokenCreator.setKeyProperties(keyProperties);
-        return tokenCreator;
-    }
-    
-    @Bean
-    public ServletRegistrationBean cosTmpKeyServlet(CosTmpTokenCreator creator) {
-		  CosTmpKeyServlet cosTmpKeyServlet = new CosTmpKeyServlet();
-		  cosTmpKeyServlet.setCreator(creator);
-		  return new ServletRegistrationBean(cosTmpKeyServlet, creator.getServerInfo().getKeyApplyPath());
-    }
-
-}
+#### 配置servlet
+例如web.xml中的配置
+```web.xml
+<servlet>
+	<servlet-name>cos-servlet</servlet-name>
+	<servlet-class>com.oldnoop.cos.tmpkey.CosTmpKeyServlet</servlet-class>
+	<!-- 配置文件,默认为classpath:coskey.properties或coskey.xml,该方式优先 -->
+	<init-param>
+		<param-name>cosConfigLocation</param-name>
+		<param-value>classpath:coskey.properties</param-value>
+	</init-param>
+</servlet>
+<servlet-mapping>
+	<servlet-name>cos-servlet</servlet-name>
+	<!--临时密钥的请求路径 -->
+	<url-pattern>/coskey</url-pattern>
+</servlet-mapping>
 ```
 
 ### 使用springboot
