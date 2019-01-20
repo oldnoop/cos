@@ -2,5 +2,5 @@
 # Interview
 
 * git clone https://github.com/oldnoop/cos.git
-* cd druid && mvn install
+* cd cos && mvn install
 * have fun.
