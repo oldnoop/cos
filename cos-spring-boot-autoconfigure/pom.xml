@@ -3,16 +3,16 @@
   <parent>
     <groupId>com.oldnoop</groupId>
     <artifactId>cos</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
   </parent>
   <artifactId>cos-spring-boot-autoconfigure</artifactId>
+  <name>cos-spring-boot-autoconfigure</name>
   
   <dependencies>
 
 		<dependency>
 			<groupId>com.oldnoop</groupId>
 			<artifactId>cos-spring</artifactId>
-			<version>${version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>

@@ -4,12 +4,10 @@
 	<parent>
 		<groupId>com.oldnoop</groupId>
 		<artifactId>cos</artifactId>
-		<version>1.1.0</version>
+		<version>1.1.1</version>
 	</parent>
 	<artifactId>cos-spring</artifactId>
-	<name>cos</name>
-	<description>spring support for cos api</description>
-	<url>https://github.com/oldnoop/cos</url>
+	<name>cos-spring</name>
 	
 	<dependencies>
 		<dependency>
