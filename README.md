@@ -21,7 +21,7 @@
 <dependency>
   <groupId>com.oldnoop</groupId>
   <artifactId>cos-spring</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <!--如有log的jar冲突,排除-->
   <!--
   <exclusions>
@@ -65,7 +65,7 @@ coskey.properties
 <dependency>
 	<groupId>com.oldnoop</groupId>
 	<artifactId>cos-spring-boot-starter</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 </dependency>
 ```
 
